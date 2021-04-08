@@ -50,7 +50,7 @@ function App() {
         onCardClick={handleCardClick}
       />
       <Footer />
-      <ImagePopup onClose={closeAllPopups}  cardData={selectedCard} />
+      <ImagePopup onClose={closeAllPopups}  card={selectedCard} />
       <PopupWithForm
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
@@ -65,7 +65,6 @@ function App() {
           type="text"
           name="name"
           placeholder="Имя"
-          value="Жак-Ив Кусто"
           required
           minLength="2"
           maxLength="40"
@@ -77,7 +76,6 @@ function App() {
           type="text"
           name="job"
           placeholder="Род занятий"
-          value="Исследователь океана"
           required
           minLength="2"
           maxLength="200"
