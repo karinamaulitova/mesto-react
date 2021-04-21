@@ -5,7 +5,7 @@ const handleOriginalResponse = (res) => {
   return Promise.reject(`Ошибка: ${res.status}`);
 };
 
- class Api {
+class Api {
   constructor(options) {
     this._options = options;
     this._baseUrl = options.baseUrl;
@@ -38,7 +38,7 @@ const handleOriginalResponse = (res) => {
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
-        about: data.job,
+        about: data.about,
       }),
     }).then(handleOriginalResponse);
   }
@@ -70,6 +70,10 @@ const handleOriginalResponse = (res) => {
       method: "DELETE",
       headers: this._headers,
     }).then(handleOriginalResponse);
+  }
+
+  changeLikeCardStatus(id, isLike) {
+  return  isLike ? this.setLike(id) : this.deleteLike(id);
   }
 }
 

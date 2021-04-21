@@ -8,12 +8,13 @@ function PopupWithForm({
   children,
   submitText,
   onClose,
+  onSubmit
 }) {
   return (
     <section className={isOpen ? "popup popup_opened" : "popup"} id={id}>
       <div className="popup__form-container popup__container">
         <h2 className="popup__heading">{title}</h2>
-        <form className="popup__form" id={`${id}-form`} name={name} noValidate>
+        <form className="popup__form" id={`${id}-form`} onSubmit={onSubmit} name={name} noValidate>
           {children}
           <button className="popup__save-button" type="submit">
             {submitText}
